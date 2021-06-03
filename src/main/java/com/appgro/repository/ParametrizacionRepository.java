@@ -1,13 +1,13 @@
 package com.appgro.repository;
 
 import com.appgro.config.ReadOnlyRepository;
-import com.appgro.model.entity.GenParametro;
+import com.appgro.model.entity.GenPais;
 import com.appgro.model.response.IdNombreResponse;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
-public interface ParametrizacionRepository extends ReadOnlyRepository<GenParametro> {
+public interface ParametrizacionRepository extends ReadOnlyRepository<GenPais> {
 
     /**
      * Función para obtener los paises parametrizados

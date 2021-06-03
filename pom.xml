@@ -75,10 +75,12 @@
         </dependency>
 
 		<!-- Driver de conexión para la base de datos Postgresql -->
+		<!-- 
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
 		</dependency>
+		 -->
 		
         <dependency>
             <groupId>io.jsonwebtoken</groupId>
