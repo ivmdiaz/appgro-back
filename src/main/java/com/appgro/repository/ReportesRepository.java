@@ -46,7 +46,7 @@ public interface ReportesRepository extends ReadOnlyRepository<ViewVentasTodas> 
 			+ " AND ub.ciudad = uc.idCiudad AND t.idUsuario =:idVendedor AND c.estado <> 'PROCESO' "
 			
 			+ " AND (COALESCE (:idsTienda) IS NULL OR (t.idTienda in :idsTienda) ) "
-			+ " AND (COALESCE (:idsDepartamentoVenta) IS NULL OR (uc.idDepartamento in :idsDepartamentoVenta) ) "
+			+ " AND (COALESCE (:idsDepartamentoVenta) IS NULL OR (uc.idDepartamento.idDepartamento in :idsDepartamentoVenta) ) "
 			+ " AND (COALESCE (:idsCiudadVenta) IS NULL OR (uc.idCiudad in :idsCiudadVenta) ) "
 			+ " AND (CAST(:fechaVentaMayor AS date) IS NULL OR c.regDate >= :fechaVentaMayor) "
 			+ " AND (:estado IS NULL OR c.estado = :estado) "
@@ -74,7 +74,7 @@ public interface ReportesRepository extends ReadOnlyRepository<ViewVentasTodas> 
 			+ " AND (COALESCE (:idsTienda) IS NULL OR (t.idTienda in :idsTienda) ) "
 			+ " AND (COALESCE (:idsProducto) IS NULL OR (p.idProducto in :idsProducto) ) "
 			+ " AND (COALESCE (:idsCategoriaProducto) IS NULL OR (pc.idCategoria in :idsCategoriaProducto ) ) "
-			+ " AND (COALESCE (:idsDepartamentoVenta) IS NULL OR (uc.idDepartamento in :idsDepartamentoVenta) ) "
+			+ " AND (COALESCE (:idsDepartamentoVenta) IS NULL OR (uc.idDepartamento.idDepartamento in :idsDepartamentoVenta) ) "
 			+ " AND (COALESCE (:idsCiudadVenta) IS NULL OR (uc.idCiudad in :idsCiudadVenta) ) "
 			+ " AND (CAST(:fechaVentaMayor AS date) IS NULL OR c.regDate >= :fechaVentaMayor) "
 			+ " AND (:estado IS NULL OR c.estado = :estado) "
@@ -98,7 +98,7 @@ public interface ReportesRepository extends ReadOnlyRepository<ViewVentasTodas> 
 			+ " AND ub.ciudad = uc.idCiudad AND c.estado <> 'PROCESO' AND t.idUsuario = u.idUsuario"
 			
 			+ " AND (COALESCE (:idsTienda) IS NULL OR (t.idTienda in :idsTienda) ) "
-			+ " AND (COALESCE (:idsDepartamentoVenta) IS NULL OR (uc.idDepartamento in :idsDepartamentoVenta) ) "
+			+ " AND (COALESCE (:idsDepartamentoVenta) IS NULL OR (uc.idDepartamento.idDepartamento in :idsDepartamentoVenta) ) "
 			+ " AND (COALESCE (:idsCiudadVenta) IS NULL OR (uc.idCiudad in :idsCiudadVenta) ) "
 			+ " AND (CAST(:fechaVentaMayor AS date) IS NULL OR c.regDate >= :fechaVentaMayor) "
 			+ " AND (CAST(:fechaVentaMenor AS date) IS NULL OR c.regDate <= :fechaVentaMenor) "
