@@ -50,7 +50,7 @@ public interface ReportesRepository extends ReadOnlyRepository<ViewVentasTodas> 
 			+ " AND (COALESCE (:idsCiudadVenta) IS NULL OR (uc.idCiudad in :idsCiudadVenta) ) "
 			+ " AND (CAST(:fechaVentaMayor AS date) IS NULL OR c.regDate >= :fechaVentaMayor) "
 			+ " AND (:estado IS NULL OR c.estado = :estado) "
-			+ " GROUP BY (t.idTienda) "
+			+ " GROUP BY t.idTienda "
 	)
 	List<ReporteTiendaResponse> getReporteTiendas(@Param("idVendedor") Long idVendedor,
 			@Param("idsTienda") List<Integer> idsTienda,
@@ -78,7 +78,7 @@ public interface ReportesRepository extends ReadOnlyRepository<ViewVentasTodas> 
 			+ " AND (COALESCE (:idsCiudadVenta) IS NULL OR (uc.idCiudad in :idsCiudadVenta) ) "
 			+ " AND (CAST(:fechaVentaMayor AS date) IS NULL OR c.regDate >= :fechaVentaMayor) "
 			+ " AND (:estado IS NULL OR c.estado = :estado) "
-			+ " GROUP BY (p.idProducto, pc.idCategoria, t.idTienda) "
+			+ " GROUP BY p.idProducto, pc.idCategoria, t.idTienda "
 	)
 	List<ReporteProductoResponse> getReporteProductos(@Param("idVendedor") Long idVendedor,
 			@Param("idsTienda") List<Integer> idsTienda, 
@@ -103,7 +103,7 @@ public interface ReportesRepository extends ReadOnlyRepository<ViewVentasTodas> 
 			+ " AND (CAST(:fechaVentaMayor AS date) IS NULL OR c.regDate >= :fechaVentaMayor) "
 			+ " AND (CAST(:fechaVentaMenor AS date) IS NULL OR c.regDate <= :fechaVentaMenor) "
 			+ " AND (:estado IS NULL OR c.estado = :estado) "
-			+ " GROUP BY (t.idTienda, u.idUsuario) "
+			+ " GROUP BY t.idTienda, u.idUsuario "
 	)
 	List<ReporteTiendaResponse> getReporteAdmTiendas(
 			@Param("idsTienda") List<Integer> idsTienda,
