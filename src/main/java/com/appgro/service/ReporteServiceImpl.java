@@ -13,7 +13,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
-import org.apache.log4j.Logger;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
@@ -40,10 +40,9 @@ import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 
+@Slf4j
 @Service
 public class ReporteServiceImpl implements ReporteService {
-
-	static final Logger log = Logger.getLogger(ReporteServiceImpl.class.getName());
 
 	private static final String VENTAS_TODAS = "ventas_todas";
 	private static final String VENTAS_TIENDA = "ventas_tiendas";

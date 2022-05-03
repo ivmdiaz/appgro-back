@@ -16,7 +16,7 @@ import com.mercadopago.resources.datastructures.preference.Item;
 import com.mercadopago.resources.datastructures.preference.Payer;
 import com.mercadopago.resources.datastructures.preference.Phone;
 
-import org.apache.log4j.Logger;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
@@ -35,10 +35,9 @@ import static com.appgro.util.AppgroUtil.*;
 import static com.appgro.util.ExceptionUtil.exceptiontoEstadoResponse;
 import static com.appgro.util.ExceptionUtil.negocioExceptiontoEstadoResponse;
 
+@Slf4j
 @Service
 public class MercadoPagoServiceImpl implements MercadoPagoService {
-
-    private static final Logger LOGGER = Logger.getLogger(MercadoPagoServiceImpl.class);
 
     private final GenUsuarioRepository mUsuarioRepository;
     private final AppCarritoCompraRepository mAppCarritoCompraRepository;
@@ -144,10 +143,10 @@ public class MercadoPagoServiceImpl implements MercadoPagoService {
             respuesta.setEntidad(mercadoPagoResponse);
             respuesta.setEstado(R0049);
         } catch (NegocioException ex) {
-            LOGGER.error("Error mercadopago: " + ex, ex);
+            log.error("Error mercadopago: " + ex, ex);
             respuesta.setEstado(negocioExceptiontoEstadoResponse(ex));
         } catch (Exception e) {
-            LOGGER.error("Error mercadopago: " + e, e);
+            log.error("Error mercadopago: " + e, e);
             respuesta.setEstado(exceptiontoEstadoResponse(e));
         }
         return respuesta;
